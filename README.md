@@ -6,3 +6,5 @@ This repository contains an sqlite version of the NRRSS database that was develo
 Bernhardt, E.S., M. A. Palmer, J. D. Allan, .G. Alexander, S. Brooks, J. Carr, C. Dahm, et al. 2005. Synthesizing U.S. River Restoration. Science 308:636-637. 
 
 Read here: http://palmerlab.umd.edu/Publications/Bernhardt%20et%20al%202005%20Science.pdf
+
+This repository's wiki contains a description of the tables included in the database.
