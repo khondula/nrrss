@@ -10,3 +10,16 @@ Read here: http://palmerlab.umd.edu/Publications/Bernhardt%20et%20al%202005%20Sc
 This repository's wiki contains a description of the tables included in the database.
 
 Browse this database with sqlite db browser: http://sqlitebrowser.org/ or with the firefox browser plug-in: https://addons.mozilla.org/en-US/firefox/addon/sqlite-manager/
+
+# R Users
+
+The `RSQLite` package provides an easy interface to working with .sqlite files in R. 
+
+```r
+install.packages("RSQLite")
+library(RSQLite)
+
+drv <- dbDriver("SQLite")
+db <- "filepath/nrrss.sqlite" # specify directory where file is
+con <- dbConnect(drv, db)
+```
