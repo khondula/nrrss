@@ -3,3 +3,4 @@
 .RData
 nrrss.Rproj
 nrrss.sqlite
+.gitignore
