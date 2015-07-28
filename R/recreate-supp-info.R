@@ -12,25 +12,25 @@ library(ggplot2)
 drv <- dbDriver("SQLite")
 
 # list.files("Z:/research/nrrss")
-db <- "Z:/research/nrrss/nrrss.sqlite"
+# db <- "Z:/research/nrrss/nrrss.sqlite"
 db <- "~/research/nrrss/nrrss.sqlite"
 con <- dbConnect(drv, db)
 
 # list tables
-dbListTables(con)
+# dbListTables(con)
 
 # list fields in a particular table
-dbListFields(con, name="nrrss_record_table")
+# dbListFields(con, name="nrrss_record_table")
 
 q1 = "SELECT * FROM proj_activities_table;"
 proj_activities_table <- dbGetQuery(con, q1)
 
-head(proj_activities_table)
+# head(proj_activities_table)
 
 q2 = "SELECT * FROM proj_ident_table;"
 proj_ident_table <- dbGetQuery(con, q2)
 
-head(proj_ident_table)
+# head(proj_ident_table)
 
 # Fig S1. The number of river restoration project records in NRRSS
 # count number of project records by year
@@ -58,4 +58,20 @@ percent_monitored <- summarise(proj_activities_table, count=n())
 
 # Fig. A1. Regional differences in the distribution of types of restoration efforts. To facilitate visual comparison only the top five intent categories for each node are shown in each stacked column. All other "non-dominant" intents are summed as part of the "nondominant" category.
 
-# proj_intent_table$proj_intent_category
+proj_intent_table <- dbGetQuery(con, "SELECT * FROM proj_intent_table;")
+proj_intent_table <- proj_intent_table[,1:2]
+# project intents are in proj_intent_num_nrrss_num_table
+# some projects have multiple intents so they have multiple rows in this table
+proj_intent_num_nrrss_num_table <- dbGetQuery(con, "SELECT * FROM proj_intent_num_nrrss_num_table;")
+# head(proj_intent_num_nrrss_num_table)
+proj_by_category <- 
+  proj_intent_num_nrrss_num_table %>%
+  group_by(proj_intent_number) %>%
+  summarise(NO_PROJECTS = n()) %>%
+  arrange(NO_PROJECTS)
+
+proj_by_category <- proj_by_category %>% 
+  left_join(proj_intent_table, by="proj_intent_number") 
+
+ggplot(proj_by_category, aes(x=proj_intent_number, y=NO_PROJECTS)) +
+  geom_bar(stat="identity")
