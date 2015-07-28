@@ -1,11 +1,18 @@
+install.packages("installr") # install 
+installr::updateR() # updating R.
 install.packages("RSQLite")
 install.packages('dplyr')
 install.packages('ggplot2')
+install.packages('tidyr')
+install.packages('leaflet')
 library(RSQLite)
 library(dplyr)
 library(ggplot2)
 
 drv <- dbDriver("SQLite")
+
+# list.files("Z:/research/nrrss")
+db <- "Z:/research/nrrss/nrrss.sqlite"
 db <- "~/research/nrrss/nrrss.sqlite"
 con <- dbConnect(drv, db)
 
