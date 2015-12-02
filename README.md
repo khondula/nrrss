@@ -25,7 +25,7 @@ Shane; Carr, Jamie; Clayton, Steve; Dahm, Clifford; Follstad-Shah, Jennifer; Gal
 - Bernhardt, Emily S.; Sudduth, Elizabeth; Palmer, Margaret A.; Allan, J. David; Meyer, Judy; Alexander, Gretchen; Follstad-Shah, Jennifer; Hassett, Brooke; Jenkinson, Robin; Lave, Rebecca; Rumps, Jeanne M.; Pagano, Laura. 2007. Restoring rivers one reach at a time: Results from a survey of U.S. river restoration practitioners. Restoration Ecology. Vol: 15(3). Pages 482-493.
 
 
-Regional Synthesis Papers
+### Regional Synthesis Papers
 
 #### 2005
 
